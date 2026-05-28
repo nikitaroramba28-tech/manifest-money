@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "src": "/(.*)",
-      "dest": "/Public/index.html"
-    }
-  ]
-}
