@@ -721,7 +721,7 @@ async function buyNow() {
 
         document.body.style.overflow = "auto";
         document.body.style.pointerEvents = "auto";
-const response = await fetch(`${window.location.origin}/api/create-order`, {
+const response = await fetch("https://manifest-money-production.up.railway.app/api/create-order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -753,7 +753,7 @@ const response = await fetch(`${window.location.origin}/api/create-order`, {
     document.body.style.overflow = "auto";
     document.body.style.pointerEvents = "auto";
 
-    const verifyResponse = await fetch("/api/verify-payment", {
+    const verifyResponse = await fetch("https://manifest-money-production.up.railway.app/api/verify-payment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
