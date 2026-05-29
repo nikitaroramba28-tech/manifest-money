@@ -13,7 +13,14 @@ const app = express();
 // MIDDLEWARE
 // =========================
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://www.divyaura.shop",
+      "https://divyaura.shop"
+    ]
+  })
+);
 
 app.use(express.json());
 
