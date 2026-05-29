@@ -1,6 +1,6 @@
 const express = require('express');
 const Razorpay = require('razorpay');
-
+const { sendZip } = require("../services/mailer");
 const router = express.Router();
 
 const razorpay = new Razorpay({
@@ -43,7 +43,11 @@ router.post('/verify-payment', async (req, res) => {
         console.log("✅ Payment verified");
 
         console.log(req.body);
+const { email } = req.body;
 
+if (email) {
+    await sendZip(email);
+}
         res.json({
             success: true,
             message: "Payment verified successfully"
