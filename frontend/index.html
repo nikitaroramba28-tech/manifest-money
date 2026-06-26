@@ -782,6 +782,8 @@ async function buyNow() {
                 email: userEmail
             })
         });
+        console.log("Status:", createOrderResponse.status);
+console.log("OK:", createOrderResponse.ok);
 
         const orderData = await createOrderResponse.json();
 
