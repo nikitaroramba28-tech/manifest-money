@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#000;
+    color:#fff;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle,#1a1a1a,#000);
+}
+
+h1{
+    color:#d4af37;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:1.2rem;
+    max-width:600px;
+    color:#ccc;
+}
+
+.download-btn{
+    margin-top:30px;
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    background:#d4af37;
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.download-btn:hover{
+    transform:scale(1.05);
+}
+
+.badge{
+    font-size:80px;
+    margin-bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="badge">✨</div>
+
+<h1>Payment Successful</h1>
+
+<p>
+Your Manifest Money Ebook has been unlocked successfully.
+Click below to access your premium download instantly.
+</p>
+
+<script>
+window.onload = function () {
+
+    const link = document.createElement("a");
+    link.href = "assets/manifest.zip.zip";
+    link.download = "Manifest Money.zip";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+};
+</script>
+
+</div>
+
+</body>
+</html>
