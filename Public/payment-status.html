@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verifying Payment</title>
+</head>
+<body>
+
+<h2>Verifying Payment...</h2>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const orderId = params.get("order_id");
+
+if(orderId){
+
+fetch("/api/verify-order",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+order_id:orderId
+})
+})
+.then(res=>res.json())
+.then(data=>{
+
+if(data.paid){
+window.location.href="success.html";
+}else{
+window.location.href="failed.html";
+}
+
+})
+.catch(()=>{
+window.location.href="failed.html";
+});
+
+}
+</script>
+
+</body>
+</html>
