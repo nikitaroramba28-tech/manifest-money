@@ -412,7 +412,7 @@ align nahi hai. jab tak dono ek line me nahi aate aap struggle k daur main he ra
 
       <div class="step-card">
         <div class="step-label">5</div>
-        <img src="/Manifest Money/manifest-money-backend/Public/Images/step5.png" alt="Result Alignment">
+        <img src="Images/step5.png" alt="Result Alignment">
         <h3>Result Alignment</h3>
         <p>Daily actions aur habits aapke financial goals ke sath align karein.</p>
       </div>
@@ -774,7 +774,7 @@ async function buyNow() {
         document.body.style.overflow = "hidden";
         document.body.style.pointerEvents = "none";
 
-        const createOrderResponse = await fetch("https://manifest-money.onrender.com/api/create-order", {
+        const createOrderResponse = await fetch("https://api.divaura.shop/api/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
