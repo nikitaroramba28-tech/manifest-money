@@ -7,13 +7,4 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
-.vscode/settings.jsonnode_modules/
-.env
-.env.*
-npm-debug.log
-package-lock.json
-
-.DS_Store
-Thumbs.db
-
 .vscode/settings.json
