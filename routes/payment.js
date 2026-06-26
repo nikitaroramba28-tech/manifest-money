@@ -27,7 +27,7 @@ router.post("/create-order", async (req, res) => {
         customer_phone: "9999999999"
       },
       order_meta: {
-return_url: "http://localhost:3000/payment-status.html?order_id={order_id}"},
+return_url: "https://manifest-money.vercel.app/payment-status.html?order_id={order_id}"},
     };
 
     const response = await cashfree.PGCreateOrder(orderRequest);
