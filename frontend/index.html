@@ -797,6 +797,18 @@ const cashfree = Cashfree({
     mode: "sandbox"
 });
 
+console.log("Cashfree object:", cashfree);
+console.log("Session:", orderData.payment_session_id);
+
+try {
+    await cashfree.checkout({
+        paymentSessionId: orderData.payment_session_id,
+        redirectTarget: "_self"
+    });
+} catch (e) {
+    console.error("Cashfree checkout error:", e);
+}
+
 cashfree.checkout({
     paymentSessionId: orderData.payment_session_id,
     redirectTarget: "_self"
