@@ -759,69 +759,8 @@ function loadScript(src) {
 </script>
 
 <script>
-
-async function buyNow() {
-    const userEmail = prompt("Enter Your Email");
-
-    if (!userEmail || !userEmail.includes("@")) {
-        alert("Please enter a valid email");
-        return;
-    }
-
-    try {
-        console.log("🛒 Buy button clicked. Creating Cashfree order...");
-        
-        document.body.style.overflow = "hidden";
-        document.body.style.pointerEvents = "none";
-
-        const createOrderResponse = await fetch("https://api.divaura.shop/api/create-order", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                amount: 599,
-                email: userEmail
-            })
-        });
-        console.log("Status:", createOrderResponse.status);
-console.log("OK:", createOrderResponse.ok);
-
-        const orderData = await createOrderResponse.json();
-
-console.log("ORDER DATA:", orderData);
-
-if (!orderData.success) {
-    throw new Error(orderData.error || "Failed to create order");
-}
-
-const cashfree = Cashfree({
-    mode: "sandbox"
-});
-
-console.log("Cashfree object:", cashfree);
-console.log("Session:", orderData.payment_session_id);
-
-try {
-    await cashfree.checkout({
-        paymentSessionId: orderData.payment_session_id,
-        redirectTarget: "_self"
-    });
-} catch (e) {
-    console.error("Cashfree checkout error:", e);
-}
-
-cashfree.checkout({
-    paymentSessionId: orderData.payment_session_id,
-    redirectTarget: "_self"
-})
-
-    } catch (error) {
-        console.error("❌ buyNow error:", error?.message || error);
-        
-        document.body.style.overflow = "auto";
-        document.body.style.pointerEvents = "auto";
-
-        alert(`Payment Error: ${error?.message || "Temporarily unavailable"}`);
-    }
+function buyNow() {
+    window.location.href = "https://payments-test.cashfree.com/forms/Divyaura";
 }
 
 // Wire any .buy-btn elements without inline onclick to call buyNow()
@@ -829,16 +768,18 @@ cashfree.checkout({
   try {
     const buttons = document.querySelectorAll('.buy-btn');
     buttons.forEach(btn => {
-      if (btn.getAttribute('onclick')) return; // inline handler present
+      if (btn.getAttribute('onclick')) return;
       if (btn.dataset.wired) return;
+
       btn.addEventListener('click', function(e){
         e.preventDefault();
         buyNow();
       });
-      btn.dataset.wired = '1';
+
+      btn.dataset.wired = "1";
     });
   } catch(e) {
-    console.error('Failed to wire buy buttons', e);
+    console.error("Failed to wire buy buttons", e);
   }
 })();
 </script>
@@ -869,6 +810,5 @@ cashfree.checkout({
     <p>© 2026 Divyaura. All Rights Reserved.</p>
   </div>
 </footer>
-<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
 </body>
 </html>

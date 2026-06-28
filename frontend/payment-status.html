@@ -13,7 +13,7 @@ const orderId = params.get("order_id");
 
 if (orderId) {
 
-    fetch("https://manifest-money.onrender.com/api/verify-payment", {
+    fetch("https://api.divaura.shop/api/verify-payment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
