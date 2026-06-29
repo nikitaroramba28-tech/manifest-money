@@ -83,7 +83,10 @@ window.onload = function () {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
+     // Redirect after 3 seconds
+    setTimeout(() => {
+        window.location.replace("https://www.divaura.shop");
+    }, 3000);
 };
 </script>
 
